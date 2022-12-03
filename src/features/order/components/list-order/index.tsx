@@ -6,20 +6,18 @@ import { useFlash } from "@contexts/useFlash";
 import { useError } from "@hooks/use-error";
 import {
   GetOrderResponse,
+  OrderStatusEnum,
   useGetOrders,
 } from "@features/order/queries/use-get-orders";
 import { formatCurrency } from "@utils/format-currency";
 import { ListAction } from "@components/list/list-action";
-import { Link } from "react-router-dom";
-import { IconButton } from "@primer/react";
+import { Label } from "@primer/react";
+import { UpdateStatus } from "@features/order/components/update-status";
+import { StatusMapping } from "@features/order/mappins/status";
 
 function ListOrder() {
   const flash = useFlash();
   const error = useError();
-
-  const [orderSelected, setOrderSelected] = useState<GetOrderResponse>(
-    {} as GetOrderResponse
-  );
 
   const getOrders = useGetOrders();
 
@@ -28,6 +26,13 @@ function ListOrder() {
       {
         label: "Status",
         accessor: "orderStatus",
+        fn(value: OrderStatusEnum) {
+          const statusMapping = StatusMapping[value];
+
+          return (
+            <Label variant={statusMapping.variant}>{statusMapping.label}</Label>
+          );
+        },
       },
       {
         label: "Valor total",
@@ -42,12 +47,12 @@ function ListOrder() {
         fn(_, data) {
           return (
             <ListAction>
-              <IconButton onClick={() => setOrderSelected(data)} />
+              <UpdateStatus orderId={data.id} />
             </ListAction>
           );
         },
       },
-    ] as TableHeader<GetOrderResponse>[];
+    ] as Array<TableHeader<GetOrderResponse>>;
   }, []);
 
   return (

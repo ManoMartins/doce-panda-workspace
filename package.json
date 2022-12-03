@@ -25,6 +25,8 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
+    "eslint-config-prettier": "^8.5.0",
+    "prettier": "^2.7.1",
     "@faker-js/faker": "^7.5.0",
     "@testing-library/cypress": "^8.0.3",
     "@types/react": "^18.0.17",
@@ -34,6 +36,15 @@
     "typescript": "^4.6.4",
     "vite": "^3.0.7",
     "vite-plugin-pages": "^0.26.0",
-    "vite-tsconfig-paths": "^3.6.0"
+    "vite-tsconfig-paths": "^3.6.0",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard-with-typescript": "^22.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-primer-react": "^1.0.1",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.31.1",
+    "eslint-plugin-react-hooks": "^4.6.0"
   }
 }

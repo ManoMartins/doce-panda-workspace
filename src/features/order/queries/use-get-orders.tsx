@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import api from "../../../services/api";
 import { centsToReal } from "../../../utils/cents-to-real";
 
-enum OrderStatusEnum {
+export enum OrderStatusEnum {
   WAITING_PAYMENT = "WAITING_PAYMENT",
   PREPARING = "PREPARING",
   IN_TRANSIT = "IN_TRANSIT",
